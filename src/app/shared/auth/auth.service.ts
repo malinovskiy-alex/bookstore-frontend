@@ -1,12 +1,13 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {User} from '../../modules/user/model/user';
 
 @Injectable()
 export class AuthorizationService {
 
-  authenticated = false;
-
   credentials = {username: '', password: ''};
+
+  user: User = null;
 
   constructor(private http: HttpClient) {
   }
@@ -19,10 +20,8 @@ export class AuthorizationService {
 
     this.http.get('http://localhost:8080/user', {headers: headers}).subscribe(response => {
         if (response['name']) {
-          this.authenticated = true;
+          this.user = response['principal'];
           this.credentials = credentials;
-        } else {
-          this.authenticated = false;
         }
         return successCallback && successCallback();
       }, error => {

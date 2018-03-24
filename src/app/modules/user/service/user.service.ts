@@ -15,4 +15,8 @@ export class UserService {
   save(user): Observable<any> {
     return this.http.post('http://localhost:8080/users', user);
   }
+
+  getById(url): Observable<any> {
+    return this.http.get(url);
+  }
 }

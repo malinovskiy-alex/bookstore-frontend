@@ -4,8 +4,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
-import {UserService} from './shared/user/user.service';
-import {UserListComponent} from './user-list/user-list.component';
+import {UserListComponent} from './modules/user/user-list/user-list.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {LoginComponent} from './login/login.component';
 import {AppNavbarComponent} from './app-navbar/app-navbar.component';
@@ -15,13 +14,8 @@ import {HomeComponent} from './home/home.component';
 import {XhrInterceptor} from './interceptor/XhrInterceptor';
 import {NgModule} from '@angular/core';
 import {BasicAuthInterceptor} from './interceptor/BasicAuthInterceptor';
-import {RegisterComponent} from './register/register.component';
-import {ComplexityValidator} from './shared/validator/complexity.directive';
-import {EqualValidator} from './shared/validator/equalvalidator.directive';
-import {BirthdayValidator} from './shared/validator/birthdayvalidator.directive';
-import { NgDatepickerModule } from 'ng2-datepicker';
-import {DatePipe} from '@angular/common';
-
+import {RegisterComponent} from './modules/user/register/register.component';
+import {UserManagementModule} from './modules/user/user.module';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'login'},
@@ -33,14 +27,9 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    UserListComponent,
     LoginComponent,
     AppNavbarComponent,
-    HomeComponent,
-    RegisterComponent,
-    ComplexityValidator,
-    BirthdayValidator,
-    EqualValidator
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -49,13 +38,13 @@ const routes: Routes = [
     BrowserAnimationsModule,
     NgbModule.forRoot(),
     FormsModule,
-    NgDatepickerModule
+    UserManagementModule
   ],
-  providers: [UserService, AuthorizationService, {
+  providers: [AuthorizationService, {provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true}, {
     provide: HTTP_INTERCEPTORS,
-    useClass: XhrInterceptor,
+    useClass: BasicAuthInterceptor,
     multi: true
-  }, {provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true}],
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -16,7 +16,7 @@ export class BirthdayValidator implements Validator {
       return null;
     }
     let date = new Date(c.value.year, c.value.month - 1, c.value.day);
-    if (date > Date.now()) {
+    if (date > new Date(Date.now())) {
       return {
         birthdayValidator: true
       };

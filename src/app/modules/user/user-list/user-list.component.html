@@ -1,16 +1,18 @@
 <div class="container">
   <h2>User list</h2>
-  <table class="table table-dark">
+  <table class="table table-bordered">
     <thead>
     <tr>
-      <th>Firstname</th>
+      <th>Username</th>
       <th>Email</th>
+      <th>Birthday</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let user of users">
       <td>{{user.username}}</td>
       <td>{{user.email}}</td>
+      <td>{{user.birthday}}</td>
     </tr>
   </table>
 </div>
