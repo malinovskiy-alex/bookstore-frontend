@@ -21,6 +21,6 @@ export class UserService {
   }
 
   update(id, user): Observable<any> {
-    return this.http.patch('http://localhost:8080/users/' + id, user);
+    return this.http.put('http://localhost:8080/users/' + id, user);
   }
 }

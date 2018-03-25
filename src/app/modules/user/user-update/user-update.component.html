@@ -56,13 +56,9 @@
       </div>
       <div class="form-group">
         <label>Gender</label>
-        <select class="form-control" [(ngModel)]="user.gender" #gender="ngModel" name="gender" required>
+        <select class="form-control" [(ngModel)]="user.gender" [compareWith]="compareFn" #gender="ngModel" name="gender" required>
           <option value=""></option>
-          <option *ngFor="let gender of genders"
-                  [value]="gender.id"
-                  [label]="gender.name">
-            {{gender}}
-          </option>
+          <option *ngFor="let gender of genders" [ngValue]="gender">{{gender.name}}</option>
         </select>
         <div *ngIf="gender.invalid && (gender.dirty || gender.touched)"
              class="alert alert-danger">

@@ -16,7 +16,7 @@ export class UserUpdateComponent implements OnInit {
 
   error = null;
 
-  genders: Set = new Set([{id: 1, name: 'Male'}, {id: 2, name: 'Female'}]);
+  genders: Set<any> = new Set([{id: 1, name: 'Male'}, {id: 2, name: 'Female'}]);
 
   constructor(private userService: UserService, private router: Router, private app: AuthorizationService) {
   }
@@ -29,5 +29,9 @@ export class UserUpdateComponent implements OnInit {
     if (editForm.form.valid) {
       this.userService.update(this.user.id, this.user).subscribe(res => this.router.navigateByUrl('/home'), error => this.error = error);
     }
+  }
+
+  compareFn(c1: any, c2: any): boolean {
+    return c1 && c2 ? c1.id === c2.id : c1 === c2;
   }
 }

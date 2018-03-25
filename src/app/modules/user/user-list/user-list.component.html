@@ -6,13 +6,15 @@
       <th>Username</th>
       <th>Email</th>
       <th>Birthday</th>
+      <th>Gender</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let user of users">
       <td>{{user.username}}</td>
       <td>{{user.email}}</td>
-      <td>{{user.birthday}}</td>
+      <td>{{user.birthday.year+'-'+user.birthday.month+'-'+user.birthday.day}}</td>
+      <td>{{user.gender?.name}}</td>
     </tr>
   </table>
 </div>

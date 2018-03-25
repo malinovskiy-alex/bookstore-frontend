@@ -39,6 +39,10 @@ export class AuthorizationService {
     localStorage.removeItem('currentUser');
   }
 
+  removeAuthHeader(): void{
+    localStorage.removeItem('authHeader');
+  }
+
   getAuthHeader(): string {
     return localStorage.getItem('authHeader');
   }
