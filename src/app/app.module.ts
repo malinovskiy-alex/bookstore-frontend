@@ -14,14 +14,16 @@ import {HomeComponent} from './home/home.component';
 import {XhrInterceptor} from './interceptor/XhrInterceptor';
 import {NgModule} from '@angular/core';
 import {BasicAuthInterceptor} from './interceptor/BasicAuthInterceptor';
-import {RegisterComponent} from './modules/user/register/register.component';
+import {UserRegistrationComponent} from './modules/user/user-registration/user-register.component';
 import {UserManagementModule} from './modules/user/user.module';
+import {UserUpdateComponent} from './modules/user/user-update/user-update.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'login'},
   {path: 'home', component: UserListComponent},
+  {path: 'profile', component: UserUpdateComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
+  {path: 'register', component: UserRegistrationComponent},
 ];
 
 @NgModule({

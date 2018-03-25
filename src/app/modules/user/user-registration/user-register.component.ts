@@ -5,10 +5,10 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  templateUrl: './user-register.component.html',
+  styleUrls: ['./user-register.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class UserRegistrationComponent implements OnInit {
 
   user: User = new User();
 

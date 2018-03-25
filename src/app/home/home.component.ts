@@ -9,11 +9,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class HomeComponent {
 
-  constructor(private app: AuthorizationService, private http: HttpClient) {
+  constructor() {
 
-  }
-
-  authenticated() {
-    return this.app.user != null;
   }
 }

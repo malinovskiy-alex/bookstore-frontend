@@ -9,9 +9,9 @@ export class BasicAuthInterceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    if (this.auth.user) {
+    if (this.auth.getCurrentUser()) {
       const xhr = req.clone({
-        headers: req.headers.set('Authorization', 'Basic ' + btoa(this.auth.credentials.username + ':' + this.auth.credentials.password))
+        headers: req.headers.set('Authorization', this.auth.getAuthHeader())
       });
       return next.handle(xhr);
     }

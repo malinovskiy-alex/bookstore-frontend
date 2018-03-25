@@ -4,13 +4,13 @@
       <li class="nav-item active">
         <a class="nav-link disabled" href="#">Bookstore App</a>
       </li>
-      <li *ngIf="app.user !=null" class="nav-item active">
-        <a class="nav-link" href="/profile">Profile</a>
+      <li *ngIf="app.getCurrentUser() !=null" class="nav-item active">
+        <a class="nav-link" routerLink="/profile">Profile</a>
       </li>
-      <li *ngIf="app.user !=null" class="nav-item active">
+      <li *ngIf="app.getCurrentUser() !=null" class="nav-item active">
       <a class="nav-link" href="/orders">Orders</a>
       </li>
-      <li *ngIf="app.user !=null" class="nav-item active">
+      <li *ngIf="app.getCurrentUser() !=null" class="nav-item active">
         <a class="nav-link" href="javascript:void(0);" (click)="logout()">Logout</a>
       </li>
     </ul>

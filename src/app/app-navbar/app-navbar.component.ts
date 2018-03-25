@@ -16,7 +16,8 @@ export class AppNavbarComponent {
 
   logout() {
     this.http.post('http://localhost:8080/logout', {}).finally(() => {
-      this.app.user = null;
+      this.app.removeCurrentUser();
+      this.app.removeAuthHeader();
       this.router.navigateByUrl('/');
     }).subscribe();
   }

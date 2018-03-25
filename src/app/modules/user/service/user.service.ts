@@ -16,7 +16,11 @@ export class UserService {
     return this.http.post('http://localhost:8080/users', user);
   }
 
-  getById(url): Observable<any> {
-    return this.http.get(url);
+  getById(id): Observable<any> {
+    return this.http.get(`http://localhost:8080/users/`+id);
+  }
+
+  update(id, user): Observable<any> {
+    return this.http.patch('http://localhost:8080/users/' + id, user);
   }
 }
