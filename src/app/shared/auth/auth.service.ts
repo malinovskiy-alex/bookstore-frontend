@@ -1,6 +1,6 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {User} from '../../modules/user/model/user';
+import {User} from '../../modules/user-managemenet/model/user';
 
 @Injectable()
 export class AuthorizationService {

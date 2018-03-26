@@ -4,9 +4,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
-import {UserListComponent} from './modules/user/user-list/user-list.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {LoginComponent} from './login/login.component';
+import {LoginComponent} from './modules/login/login-form/login.component';
 import {AppNavbarComponent} from './app-navbar/app-navbar.component';
 import {AuthorizationService} from './shared/auth/auth.service';
 import {FormsModule} from '@angular/forms';
@@ -14,13 +13,17 @@ import {HomeComponent} from './home/home.component';
 import {XhrInterceptor} from './interceptor/XhrInterceptor';
 import {NgModule} from '@angular/core';
 import {BasicAuthInterceptor} from './interceptor/BasicAuthInterceptor';
-import {UserRegistrationComponent} from './modules/user/user-registration/user-register.component';
-import {UserManagementModule} from './modules/user/user.module';
-import {UserUpdateComponent} from './modules/user/user-update/user-update.component';
+import {BookListComponent} from './modules/book-management/book-list/book-list.component';
+import {BookService} from './modules/book-management/service/books.service';
+import {LoginModule} from './modules/login/login.module';
+import {UserUpdateComponent} from './modules/user-managemenet/user-update/user-update.component';
+import {UserRegistrationComponent} from './modules/user-managemenet/user-registration/user-register.component';
+import {UserManagementModule} from './modules/user-managemenet/user-management.module';
+import {BookManagementModule} from './modules/book-management/book-management.module';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'login'},
-  {path: 'home', component: UserListComponent},
+  {path: 'home', component: BookListComponent},
   {path: 'profile', component: UserUpdateComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: UserRegistrationComponent},
@@ -29,9 +32,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     AppNavbarComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,9 @@ const routes: Routes = [
     BrowserAnimationsModule,
     NgbModule.forRoot(),
     FormsModule,
-    UserManagementModule
+    UserManagementModule,
+    LoginModule,
+    BookManagementModule
   ],
   providers: [AuthorizationService, {provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true}, {
     provide: HTTP_INTERCEPTORS,

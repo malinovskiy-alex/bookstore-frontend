@@ -14,7 +14,7 @@ import {UserUpdateComponent} from './user-update/user-update.component';
   imports: [CommonModule, FormsModule, NgbModule],
   declarations: [UserRegistrationComponent, UserUpdateComponent, UserListComponent,
     BirthdayValidator, ComplexityValidator, EqualValidator],
-  exports: [UserRegistrationComponent, UserUpdateComponent, UserListComponent, BirthdayValidator, ComplexityValidator, EqualValidator],
+  exports: [UserRegistrationComponent, UserUpdateComponent, UserListComponent],
   providers: [UserService]
 
 })

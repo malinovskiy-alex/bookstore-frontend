@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {AuthorizationService} from '../shared/auth/auth.service';
+import {AuthorizationService} from '../../../shared/auth/auth.service';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 

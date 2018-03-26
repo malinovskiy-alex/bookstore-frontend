@@ -27,7 +27,7 @@ export class UserRegistrationComponent implements OnInit {
 
   register(registerForm) {
     if (registerForm.form.valid) {
-      this.userService.save(this.user).subscribe(res => this.router.navigateByUrl('/login'), error => this.error = error);
+      this.userService.save(this.user).subscribe(res => this.router.navigateByUrl('/login-form'), error => this.error = error);
     }
   }
 }
