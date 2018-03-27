@@ -14,7 +14,6 @@ import {XhrInterceptor} from './interceptor/XhrInterceptor';
 import {NgModule} from '@angular/core';
 import {BasicAuthInterceptor} from './interceptor/BasicAuthInterceptor';
 import {BookListComponent} from './modules/book-management/book-list/book-list.component';
-import {BookService} from './modules/book-management/service/books.service';
 import {LoginModule} from './modules/login/login.module';
 import {UserUpdateComponent} from './modules/user-managemenet/user-update/user-update.component';
 import {UserRegistrationComponent} from './modules/user-managemenet/user-registration/user-register.component';
