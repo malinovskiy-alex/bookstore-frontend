@@ -32,7 +32,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     AppNavbarComponent,
-    HomeComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

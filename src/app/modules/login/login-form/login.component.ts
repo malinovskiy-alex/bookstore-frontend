@@ -13,7 +13,7 @@ export class LoginComponent {
   credentials = {username: '', password: ''};
   error = '';
 
-  constructor(private app: AuthorizationService, private http: HttpClient, private router: Router) {
+  constructor(private app: AuthorizationService, private http: HttpClient, public router: Router) {
   }
 
   login() {

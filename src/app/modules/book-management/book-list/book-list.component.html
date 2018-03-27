@@ -23,7 +23,7 @@
       </td>
       <td>{{book.price | currency}}</td>
       <td>
-        <button class="btn btn-primary">Add to cart</button>
+        <button class="btn btn-primary" (click)="addBook(book)">Add to cart</button>
       </td>
     </tr>
   </table>

@@ -14,8 +14,7 @@
         <a class="nav-link" href="javascript:void(0);" (click)="logout()">Logout</a>
       </li>
       <li *ngIf="app.getCurrentUser() !=null" class="nav-item active">
-        <a class="nav-link" href=""><img src="./../../assets/shopping_cart_PNG64.png"
-                                                            style="width: 1.2rem; height: 1.2rem; cursor: pointer;"></a>
+        <a class="nav-link" href="javascript:void(0);" (click)="openCart()"><img src="./../../assets/shopping_cart_PNG64.png">Cart</a>
       </li>
     </ul>
   </div>

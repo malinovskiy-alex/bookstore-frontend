@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {BookService} from '../service/books.service';
 import {Book} from '../model/book';
 import {Page} from '../../../shared/paging/Page';
+import {ShoppingCartService} from '../service/shopping.cart.service';
 
 @Component({
   selector: 'app-shopping-list',
@@ -12,8 +13,7 @@ export class BookListComponent implements OnInit {
 
   bookPage: Page<Book>;
 
-
-  constructor(private bookService: BookService) {
+  constructor(private bookService: BookService, private shoppingCartService: ShoppingCartService) {
   }
 
   ngOnInit() {
@@ -22,6 +22,10 @@ export class BookListComponent implements OnInit {
 
   pageChanged(newPage) {
     this.bookService.getBooksPage(newPage - 1, 5).subscribe(resp => this.bookPage = new Page<Book>(resp._embedded.books, newPage, resp.page.totalElements));
+  }
+
+  addBook(book): void {
+    this.shoppingCartService.addToCart(book);
   }
 
 }
