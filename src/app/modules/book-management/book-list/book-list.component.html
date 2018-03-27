@@ -1,0 +1,33 @@
+<div class="container">
+  <h2>Available books</h2>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Book</th>
+      <th>Price</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr
+      *ngFor="let book of bookPage?.elements | paginate: {itemsPerPage:5, currentPage:bookPage?.currentPage, totalItems:bookPage?.totalSize}">
+      <td>
+        <div class="media-body">
+          {{book.name}}
+        </div>
+        <div class="media">
+          <a class="thumbnail pull-left" href="#"> <img class="media-object"
+                                                        src="{{book.bookImageUrl}}"
+                                                        style="width: 72px; height: 72px;"/></a>
+        </div>
+      </td>
+      <td>{{book.price | currency}}</td>
+      <td>
+        <button class="btn btn-primary">Add to cart</button>
+      </td>
+    </tr>
+  </table>
+  <div>
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+  </div>
+</div>

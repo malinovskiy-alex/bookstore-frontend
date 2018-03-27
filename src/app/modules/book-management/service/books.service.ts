@@ -8,7 +8,7 @@ export class BookService {
   constructor(private http: HttpClient) {
   }
 
-  getAll(): Observable<any> {
-    return this.http.get('http://localhost:8080/books',);
+  getBooksPage(page, size): Observable<any> {
+    return this.http.get('http://localhost:8080/books?page=' + page + '&size=' + size,);
   }
 }

@@ -35,11 +35,11 @@ export class AuthorizationService {
     return JSON.parse(localStorage.getItem('currentUser'));
   }
 
-  removeCurrentUser(): void{
+  removeCurrentUser(): void {
     localStorage.removeItem('currentUser');
   }
 
-  removeAuthHeader(): void{
+  removeAuthHeader(): void {
     localStorage.removeItem('authHeader');
   }
 
@@ -55,4 +55,10 @@ export class AuthorizationService {
     return localStorage.setItem('currentUser', JSON.stringify(user));
   }
 
+  logout() {
+    return this.http.post('http://localhost:8080/logout', {}).finally(() => {
+      this.removeCurrentUser();
+      this.removeAuthHeader();
+    });
+  }
 }

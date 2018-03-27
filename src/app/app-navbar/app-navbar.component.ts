@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
 import {AuthorizationService} from '../shared/auth/auth.service';
 import {Router} from '@angular/router';
 import 'rxjs/add/operator/finally';
@@ -11,15 +10,10 @@ import 'rxjs/add/operator/finally';
 })
 export class AppNavbarComponent {
 
-  constructor(private app: AuthorizationService, private http: HttpClient, private router: Router) {
+  constructor(private app: AuthorizationService, private router: Router) {
   }
 
   logout() {
-    this.http.post('http://localhost:8080/logout', {}).finally(() => {
-      this.app.removeCurrentUser();
-      this.app.removeAuthHeader();
-      this.router.navigateByUrl('/');
-    }).subscribe();
+    this.app.logout().subscribe(resp => this.router.navigateByUrl('/'));
   }
-
 }
